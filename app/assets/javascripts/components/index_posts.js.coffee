@@ -1,4 +1,4 @@
-@Posts = React.createClass
+@IndexPosts = React.createClass
 
   getInitialState: ->
     posts: @props.data
@@ -14,11 +14,9 @@
         'All Posts'
 
       React.DOM.table
-        className: 'table table-bordered'
+        className: 'table'
         React.DOM.thead null,
           React.DOM.tr null,
-            React.DOM.th null, 'Title'
-            React.DOM.th null, 'Description'
         React.DOM.tbody null,
           for post in @state.posts
-            React.createElement Post, key: post.id, post: post
+            React.createElement IndexPost, key: post.id, post: post

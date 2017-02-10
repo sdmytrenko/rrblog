@@ -1,5 +1,17 @@
 @Post = React.createClass
+
+  getInitialState: ->
+    post: @props.data
+
+  getDefaultProps: ->
+    post: []
+
   render: ->
-    React.DOM.tr null,
-      React.DOM.td null, @props.post.title
-      React.DOM.td null, @props.post.description
+    React.DOM.div
+      className: 'post'
+      React.DOM.h2
+        className: 'title'
+        @state.post.title
+      React.DOM.h4
+        className: 'test'
+        @state.post.description
