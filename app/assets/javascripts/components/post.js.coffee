@@ -15,3 +15,4 @@
       React.DOM.h4
         className: 'test'
         @state.post.description
+      React.DOM.h5, @state.post.created_at

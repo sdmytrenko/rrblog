@@ -6,12 +6,21 @@
   getDefaultProps: ->
     posts: []
 
+  addPost: (post) ->
+    posts = @state.posts.slice()
+    posts.push post
+    @setState posts: posts
+
   render: ->
     React.DOM.div
       className: 'posts'
       React.DOM.h2
         className: 'title'
         'All Posts'
+
+      React.DOM.hr null
+      React.createElement PostForm, handleNewPost: @addPost
+      React.DOM.hr null
 
       React.DOM.table
         className: 'table'
