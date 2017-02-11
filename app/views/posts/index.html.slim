@@ -1,8 +1,7 @@
-h1
-  | All posts
+/- @posts.each do |post|/
+/  h3/
+/    = link_to post.title, post_path(post)/
+/  h4/
+/    = post.description/
 
-- @posts.each do |post|
-  h3
-    = link_to post.title, post_path(post)
-  h4
-    = post.description
+= react_component 'IndexPosts', { data: @posts }
