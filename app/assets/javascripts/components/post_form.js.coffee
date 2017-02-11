@@ -5,9 +5,9 @@
     description: ''
 
   valid: ->
-    @state.title && @state.description
+    @state.title && @state.description # перевірка валідації на пусті строки
 
-  handleChange: (e) ->
+  handleChange: (e) -> # метод для визначення, який інпут запустив подію і обновляти стан
     name = e.target.name
     @setState "#{ name }": e.target.value
 
