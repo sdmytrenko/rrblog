@@ -11,6 +11,11 @@
     posts.push post
     @setState posts: posts
 
+  updatePost: (post, data) ->
+    index = @state.posts.indexOf post
+    posts = React.addons.update(@state.posts, { $splice: [[index, 1, data]] })
+    @replaceState posts: posts
+
   deletePost: (post) ->
     index = @state.posts.indexOf post
     posts = React.addons.update(@state.posts, { $splice: [[index, 1]] })
@@ -33,4 +38,4 @@
           React.DOM.tr null,
         React.DOM.tbody null,
           for post in @state.posts
-            React.createElement IndexPost, key: post.id, post: post, handleDeletePost: @deletePost
+            React.createElement IndexPost, key: post.id, post: post, handleDeletePost: @deletePost, handleEditPost: @updatePost
