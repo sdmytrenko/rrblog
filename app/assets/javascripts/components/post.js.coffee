@@ -21,3 +21,7 @@
       #   className: 'btn btn-danger'
       #   'Delete'
       # React.DOM.hr null
+
+      React.DOM.h3
+        className: 'title'
+        'Coments'
