@@ -13,7 +13,7 @@
         className: 'title'
         @state.post.title
       React.DOM.h4
-        className: 'test'
+        className: 'description'
         @state.post.description
       React.DOM.h5, @state.post.created_at
       React.DOM.hr null
@@ -24,4 +24,5 @@
 
       React.DOM.h3
         className: 'title'
-        'Coments'
+        'Comments'
+      # React.createElement Comments
