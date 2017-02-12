@@ -5,12 +5,20 @@
   getDefaultProps: ->
     comments: []
 
+  addComment: (comment) ->
+    comments = @state.comments.slice()
+    comments.push comment
+    @setState comments: comments
+
   render: ->
     React.DOM.div
       className: 'comments'
-      React.DOM.h2
+
+      React.DOM.h3
         className: 'title'
-        'Comments test'
+        'Your comment :'
+      React.createElement CommentForm, handleNewComment: @addComment
+      React.DOM.hr null
 
       React.DOM.table
         className: 'table table-bordered'

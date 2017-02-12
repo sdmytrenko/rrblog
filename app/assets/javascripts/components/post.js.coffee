@@ -24,5 +24,7 @@
 
       React.DOM.h3
         className: 'title'
-        'Comments'
+        'Comments form post'
       # React.createElement Comments
+      # React.createElement CommentForm, handleNewComment: @addComment
+      # React.DOM.hr null
