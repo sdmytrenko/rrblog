@@ -10,6 +10,11 @@
     comments.push comment
     @setState comments: comments
 
+  # deleteComment: (comment) ->
+  #   index = @state.comments.indexOf comment
+  #   comments = React.addons.update(@state.comments, { $splice: [[index, 1]] })
+  #   @replaceState comments: comments
+
   render: ->
     React.DOM.div
       className: 'comments'
@@ -26,4 +31,4 @@
           React.DOM.tr null,
         React.DOM.tbody null,
           for comment in @state.comments
-            React.createElement Comment, key: comment.id, comment: comment
+            React.createElement Comment, key: comment.id, comment: comment #, handleDeleteComment: @deleteComment

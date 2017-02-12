@@ -7,8 +7,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comment.new(comment_params)
+    # @post = Post.find(params[:post_id])
+    # @comment = @post.comment.new(comment_params)
+    @comment = Comment.new(comment_params)
     # @comment.post_id = params[:post_id]
     # @comment.user = current.user
     if @comment.save
@@ -16,6 +17,13 @@ class CommentsController < ApplicationController
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    head :no_content
   end
 
   private

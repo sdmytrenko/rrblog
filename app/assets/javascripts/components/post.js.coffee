@@ -17,14 +17,7 @@
         @state.post.description
       React.DOM.h5, @state.post.created_at
       React.DOM.hr null
-      # React.DOM.a
-      #   className: 'btn btn-danger'
-      #   'Delete'
-      # React.DOM.hr null
 
       React.DOM.h3
         className: 'title'
         'Comments form post'
-      # React.createElement Comments
-      # React.createElement CommentForm, handleNewComment: @addComment
-      # React.DOM.hr null
