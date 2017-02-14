@@ -49,11 +49,20 @@ var Posts = React.createClass({
     this.setState({post: newPost});
   },
 
+
+  handleDeletePost(post) {
+    var postList = this.state.posts.filter(function(item) {
+      return post.id !== item.id;
+    });
+    this.setState({posts: postList});
+  },
+
   render: function() {
     var posts = [];
-    posts = this.props.posts.map( function(post) {
+    var that = this;
+    posts = this.state.posts.map( function(post) {
       return (
-        <Post post={post} key={post.id} />
+        <Post post={post} key={post.id} onDellPost={that.handleDeletePost} />
       );
     });
 

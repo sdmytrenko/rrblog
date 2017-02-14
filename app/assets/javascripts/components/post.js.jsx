@@ -40,6 +40,17 @@ var Post = React.createClass({
     });
   },
 
+  handlePostDelete() {
+    var that = this;
+    $.ajax({
+      method: 'DELETE',
+      url: '/posts/' + that.state.post.id + '.json',
+      success: function(res) {
+        that.props.onDellPost(that.state.post);
+      }
+    })
+  },
+
   render() {
     if ( this.state.editMode ) {
       markup = (
@@ -70,6 +81,7 @@ var Post = React.createClass({
           <td>{this.state.post.created_at}</td>
           <td>
             <button onClick={this.setEditMode}>Edit</button>
+            <button onClick={this.handlePostDelete} style={{color: 'red'}}>Dell</button>
           </td>
         </tr>
       );
