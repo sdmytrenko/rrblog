@@ -15,7 +15,7 @@ class PostsController < ApplicationController
         if @post.save
           render json: @post
         else
-          render json: @post.errors, status: :unprocessable_entity
+          render json: @post.errors.messages, status: :unprocessable_entity
         end
       end
     end
@@ -25,13 +25,18 @@ class PostsController < ApplicationController
   #   @comments = @post.comments
   # end
 
-  # def update
-  #   if @post.update(post_params)
-  #     render json: @post
-  #   else
-  #     render json: @post.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.json do
+        if @post.update(post_params)
+          render json: @post
+        else
+          render json: @post.errors.messages, status: :unprocessable_entity
+        end
+      end
+    end
+  end
 
   # def destroy
   #   @post.destroy
