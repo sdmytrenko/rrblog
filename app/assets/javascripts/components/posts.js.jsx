@@ -1,6 +1,53 @@
-{/*import BlogHeader from './blog_header.js.jsx';*/}
-
 var Posts = React.createClass({
+
+  getInitialState() {
+    return {
+      posts: this.props.posts,
+      post: {
+        title: '',
+        description: ''
+      },
+      errors: {}
+    }
+  },
+
+  handleAddNewPost() {
+    var that = this;
+    $.ajax({
+      method: 'POST',
+      data: {
+        post: that.state.post,
+      },
+      url: '/posts.json',
+      success: function(res) {
+        var newPostList = that.state.posts;
+        newPostList.push(res);
+        that.setState({
+          posts: newPostList,
+          post: {
+            title: '',
+            description: ''
+          },
+          errors: {}
+        });
+      },
+      error: function(res) {
+        that.setState({errors: res.responseJSON.errors})
+      }
+    });
+  },
+
+  handleTitleChange(e) {
+    var newPost = this.state.post;
+    newPost.title = e.target.value;
+    this.setState({post: newPost});
+  },
+
+  handleDescriptionChange(e) {
+    var newPost = this.state.post;
+    newPost.description = e.target.value;
+    this.setState({post: newPost});
+  },
 
   render: function() {
     var posts = [];
@@ -24,6 +71,18 @@ var Posts = React.createClass({
             </thead>
             <tbody>
               {posts}
+              <tr>
+                <td>
+                  <input type="text" onChange={this.handleTitleChange} /><br />
+                  <span style={{color: 'red'}}>{this.state.errors.title}</span>
+                </td>
+                <td>
+                  <input type="text" onChange={this.handleDescriptionChange} /><br />
+                  <span style={{color: 'red'}}>{this.state.errors.description}</span>
+                </td>
+                <td></td>
+                <td><button onClick={this.handleAddNewPost}>New Post</button></td>
+              </tr>
             </tbody>
           </table>
         </div>

@@ -7,15 +7,19 @@ class PostsController < ApplicationController
     render component: 'Posts', props: { posts: @posts }
   end
 
-  # def create
-  #   @post = Post.new(post_params)
-  #   # @post.user_id = current_user.id
-  #   if @post.save
-  #     render json: @post
-  #   else
-  #     render json: @post.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def create
+    @post = Post.new(post_params)
+    # @post.user_id = current_user.id
+    respond_to do |format|
+      format.json do
+        if @post.save
+          render json: @post
+        else
+          render json: @post.errors, status: :unprocessable_entity
+        end
+      end
+    end
+  end
 
   # def show
   #   @comments = @post.comments
@@ -34,13 +38,13 @@ class PostsController < ApplicationController
   #   head :no_content
   # end
 
-  # private
+  private
   #   def find_post
   #     @post = Post.find(params[:id])
   #   end
 
-  #   def post_params
-  #     params.require(:post).permit(:title, :description)
-  #   end
+    def post_params
+      params.require(:post).permit(:title, :description)
+    end
 
 end
