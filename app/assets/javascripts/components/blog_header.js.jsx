@@ -1,5 +1,9 @@
 var BlogHeader = React.createClass({
 
+  getInitialState: function() {
+    return { posts: [] };
+  },
+
   render: function() {
     return(
       <div className="container">
@@ -14,7 +18,7 @@ var BlogHeader = React.createClass({
         </div>
         <div className="row">
           <div className="col-md-8">
-            <PostsList /> 
+            <PostsList posts={this.state.posts} /> 
           </div>
         </div>
       </div>
