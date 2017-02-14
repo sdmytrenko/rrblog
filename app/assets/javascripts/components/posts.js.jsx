@@ -11,6 +11,18 @@ var Posts = React.createClass({
     }
   },
 
+  handleTitleChange(e) {
+    var newPost = this.state.post;
+    newPost.title = e.target.value;
+    this.setState({post: newPost});
+  },
+
+  handleDescriptionChange(e) {
+    var newPost = this.state.post;
+    newPost.description = e.target.value;
+    this.setState({post: newPost});
+  },
+
   handleAddNewPost() {
     var that = this;
     $.ajax({
@@ -24,10 +36,6 @@ var Posts = React.createClass({
         newPostList.push(res);
         that.setState({
           posts: newPostList,
-          post: {
-            title: '',
-            description: ''
-          },
           errors: {}
         });
       },
@@ -36,19 +44,6 @@ var Posts = React.createClass({
       }
     });
   },
-
-  handleTitleChange(e) {
-    var newPost = this.state.post;
-    newPost.title = e.target.value;
-    this.setState({post: newPost});
-  },
-
-  handleDescriptionChange(e) {
-    var newPost = this.state.post;
-    newPost.description = e.target.value;
-    this.setState({post: newPost});
-  },
-
 
   handleDeletePost(post) {
     var postList = this.state.posts.filter(function(item) {
