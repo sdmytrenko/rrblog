@@ -1,20 +1,18 @@
 var Post = React.createClass({
 
-  propTypes: {
-    title: React.PropTypes.string,
-    description: React.PropTypes.string,
-    created_at: React.PropTypes.string
+  getInitialState() {
+    return {
+      post: this.props.post
+    }
   },
 
-  render: function() {
-    var post = this.props.post;
-    return(
+  render() {
+    return (
       <tr>
-        <td>{post.title}</td>
-        <td>{post.description}</td>
-        <td>{post.created_at}</td>
-        <td>{post.description}</td>
+        <td>{this.state.post.title}</td>
+        <td>{this.state.post.description}</td>
+        <td>{this.state.post.created_at}</td>
       </tr>
-    )
+    );
   }
 });

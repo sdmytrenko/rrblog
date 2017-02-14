@@ -18,7 +18,7 @@ var BlogHeader = React.createClass({
         </div>
         <div className="row">
           <div className="col-md-8">
-            <PostsList posts={this.state.posts} /> 
+            {/* тут повинні бути пости*/}
           </div>
         </div>
       </div>
