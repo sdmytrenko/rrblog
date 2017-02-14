@@ -14,6 +14,7 @@ var PostsList = React.createClass({
         <div className="row">
           <div className="col-md-8">
               <p>POST</p>
+              <TestData />
           </div>
         </div>
       </div>
