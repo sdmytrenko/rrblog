@@ -1,23 +1,20 @@
 var PostsList = React.createClass({
+
   render: function() {
     return(
-      <div className="container">
-        <div className="row">
-          <div className= "page-header">
-            <h1>Hello, World!</h1>
-            <p>All Posts</p>
-          </div>
-          <ol className="breadcrumb">
-            <li><a href="#">Posts</a></li>
-          </ol>
-        </div>
-        <div className="row">
-          <div className="col-md-8">
-              <p>POST</p>
-              <TestData />
-          </div>
-        </div>
-      </div>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th className="col-md-3">Тема</th>
+            <th className="col-md-2">Date</th>
+            <th className="col-md-3">Коментарі</th>
+            <th className="col-md-4">Останній комент</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* тут буде компонент поста */}
+        </tbody>
+      </table>
     )
   }
 });
