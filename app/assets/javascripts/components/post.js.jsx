@@ -76,7 +76,10 @@ var Post = React.createClass({
     } else {
       markup = (
         <tr>
-          <td>{this.state.post.title}</td>
+          <td>
+            <h3> {this.state.post.title} </h3>
+            <a href={'/posts/' + this.state.post.id}>Read more</a>
+          </td>
           <td>{this.state.post.description}</td>
           <td>{this.state.post.created_at}</td>
           <td>
