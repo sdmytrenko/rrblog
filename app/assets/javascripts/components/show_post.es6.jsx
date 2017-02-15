@@ -1,3 +1,4 @@
+{/* import Comments from './comments' Webpack???  */}
 class ShowPost extends React.Component {
 
   render () {
@@ -11,8 +12,8 @@ class ShowPost extends React.Component {
         <h5> {this.props.post.comments}</h5>
 
         <a href={'/posts'}>Back to list</a>
-
-         {/*<Comments/>*/}
+        <p><a href={'/posts/' + this.props.post.id + '/comments'}>Show comments (temporary)</a></p>
+         {/*<Comments/>   Webpack??? */}
       </div>
     )
   }

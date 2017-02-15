@@ -63,26 +63,20 @@ var Posts = React.createClass({
 
     return (
       <div>
-        <h1>Posts</h1>
+        <h1>All Posts</h1>
         <div id="posts">
           <table className="table table-striped">
             <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Created At</th>
-              </tr>
+              <tr></tr>
             </thead>
             <tbody>
               {posts}
               <tr>
                 <td>
                   <input type="text" onChange={this.handleTitleChange} /><br />
-                  <span style={{color: 'red'}}>{this.state.errors.title}</span>
                 </td>
                 <td>
                   <input type="text" onChange={this.handleDescriptionChange} /><br />
-                  <span style={{color: 'red'}}>{this.state.errors.description}</span>
                 </td>
                 <td></td>
                 <td><button onClick={this.handleAddNewPost}>New Post</button></td>

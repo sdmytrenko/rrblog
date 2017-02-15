@@ -1,8 +1,6 @@
-export class Comments extends React.Component {
+class Comments extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
+
 
   render () {
 
@@ -13,11 +11,14 @@ export class Comments extends React.Component {
             <p key={comment.id}> {comment.text} </p>
             )
         })}
-        {/* <h2> Show Comments here </h2> */}
-
       </div>
     )
   }
 }
 
-{/* export default Comments; */}
+ {/* export default Comments; */}
+
+{/*  constructor(props) {
+    super(props);
+  },
+*/}

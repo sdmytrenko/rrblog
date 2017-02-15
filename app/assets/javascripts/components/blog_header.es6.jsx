@@ -1,5 +1,4 @@
-{/*class BlogHeader extends React.Component {*/}
-var BlogHeader = React.createClass({
+class BlogHeader extends React.Component {
 
   render() {
 
@@ -17,7 +16,7 @@ var BlogHeader = React.createClass({
         </div>
         <div className="row">
           <div className="col-md-8">
-            {/* тут повинні бути пости*/}
+            {/* тут повинні бути пости !!!import???*/}
             
             <Content/>
           </div>
@@ -25,5 +24,5 @@ var BlogHeader = React.createClass({
       </div>
     )
   }
-});
+};
 

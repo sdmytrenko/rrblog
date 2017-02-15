@@ -1,4 +1,5 @@
-var Content = React.createClass({
+class Content extends React.Component {
+
    render() {
       return (
          <div>
@@ -8,5 +9,7 @@ var Content = React.createClass({
          </div>
       );
    }
-})
+}
+
+{/* export default Comments; */}
 
