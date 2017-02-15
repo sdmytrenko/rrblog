@@ -1,8 +1,4 @@
-/- @posts.each do |post|/
-/  h3/
-/    = link_to post.title, post_path(post)/
-/  h4/
-/    = post.description/
-
 / = react_component 'IndexPosts', { data: @posts }/
 / = react_component 'BlogHeader'/
+
+ = react_component: 'Posts', { posts: @posts }
