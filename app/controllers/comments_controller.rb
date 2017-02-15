@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
 
-  # before_action :find_post
-
   def index
     @comments = Comment.where("post_id = #{params[:post_id]}")
+    render component: 'Comments', props: { comments: @comments }
   end
 
   def create
@@ -26,10 +25,6 @@ class CommentsController < ApplicationController
   end
 
   private
-    # def find_post
-    #   @post = Post.find(params[:post_id])
-    # end
-
     def comment_params
       params.require(:comment).permit(:text)
     end

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:update, :destroy]
+  before_action :find_post, only: [:show, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -21,9 +21,10 @@ class PostsController < ApplicationController
     end
   end
 
-  # def show
-  #   @comments = @post.comments
-  # end
+  def show
+    # @comments = @post.comments
+    render component: 'ShowPost', props: { post: @post }
+  end
 
   def update
     @post = Post.find(params[:id])

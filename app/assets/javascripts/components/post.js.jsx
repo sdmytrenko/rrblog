@@ -76,9 +76,14 @@ var Post = React.createClass({
     } else {
       markup = (
         <tr>
-          <td>{this.state.post.title}</td>
-          <td>{this.state.post.description}</td>
-          <td>{this.state.post.created_at}</td>
+          <td>
+            <h3> {this.state.post.title} </h3>
+            <h6>{this.state.post.created_at}</h6>
+            <h4>{this.state.post.description}</h4>
+            <a href={'/posts/' + this.state.post.id}>Read more</a>
+          </td>
+          <td></td>
+          <td></td>
           <td>
             <button onClick={this.setEditMode}>Edit</button>
             <button onClick={this.handlePostDelete} style={{color: 'red'}}>Dell</button>

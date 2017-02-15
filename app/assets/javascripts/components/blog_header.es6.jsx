@@ -1,10 +1,8 @@
-var BlogHeader = React.createClass({
+class BlogHeader extends React.Component {
 
-  getInitialState: function() {
-    return { posts: [] };
-  },
+  render() {
 
-  render: function() {
+
     return(
       <div className="container">
         <div className="row">
@@ -18,10 +16,13 @@ var BlogHeader = React.createClass({
         </div>
         <div className="row">
           <div className="col-md-8">
-            {/* тут повинні бути пости*/}
+            {/* тут повинні бути пости !!!import???*/}
+            
+            <Content/>
           </div>
         </div>
       </div>
     )
   }
-});
+};
+
