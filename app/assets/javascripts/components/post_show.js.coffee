@@ -1,4 +1,4 @@
-@Post = React.createClass
+@PostShow = React.createClass
 
   getInitialState: ->
     post: @props.data
