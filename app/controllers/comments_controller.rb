@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.where("post_id = #{params[:post_id]}")
+    render component: 'Comments', props: { comments: @comments }
   end
 
   def create

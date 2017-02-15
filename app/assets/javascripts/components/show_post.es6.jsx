@@ -1,4 +1,5 @@
 class ShowPost extends React.Component {
+
   render () {
 
     return (
@@ -7,6 +8,11 @@ class ShowPost extends React.Component {
         <h2> {this.props.post.title} </h2>
         <h3> {this.props.post.description}</h3>
         <h5> {this.props.post.created_at}</h5>
+        <h5> {this.props.post.comments}</h5>
+
+        <a href={'/posts'}>Back to list</a>
+
+         {/*<Comments/>*/}
       </div>
     )
   }
